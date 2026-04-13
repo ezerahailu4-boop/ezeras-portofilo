@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ezera | Resume</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Resume of Ezera Hailu — Full Stack Web Developer based in Addis Ababa, Ethiopia." />
+    <meta name="keywords" content="Ezera Hailu, resume, CV, Full Stack Developer, web developer, Ethiopia" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Ezera | Resume">
+    <meta property="og:description" content="Resume of Ezera Hailu — Full Stack Web Developer.">
+    <meta property="og:url" content="https://ezera.tech/resume.html">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/cursor.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <script src="https://code.iconify.design/1/1.0.4/iconify.min.js" defer></script>
+    <script defer src="./assets/js/dynamicTitle.js"></script>
+
+    <style>
+        .resume-page {
+            min-height: 100vh;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+        }
+
+        .resume-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(187,134,252,0.15);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .resume-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 50px 40px;
+            position: relative;
+        }
+        .resume-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 6px;
+            letter-spacing: 1px;
+        }
+        .resume-header .role {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+            margin-bottom: 28px;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 30px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.88rem;
+            text-decoration: none;
+        }
+        .contact-item i {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+        .contact-item:hover { color: #fff; text-decoration: none; }
+
+        .download-btn {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 24px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+        }
+        .download-btn:hover {
+            background: rgba(255,255,255,0.28);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Body */
+        .resume-body {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        /* Sidebar */
+        .resume-sidebar {
+            background: rgba(255,255,255,0.03);
+            border-right: 1px solid rgba(187,134,252,0.1);
+            padding: 40px 30px;
+        }
+
+        /* Main */
+        .resume-main {
+            padding: 40px 40px;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #bb86fc;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(187,134,252,0.25);
+        }
+
+        .resume-section { margin-bottom: 36px; }
+
+        /* Skills */
+        .skill-group { margin-bottom: 18px; }
+        .skill-group-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 8px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .skill-tag {
+            background: rgba(102,126,234,0.15);
+            border: 1px solid rgba(102,126,234,0.3);
+            color: #a0b4ff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Languages */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .lang-name {
+            font-size: 0.85rem;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+        .lang-level {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Personal info */
+        .info-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        .info-item i {
+            color: #bb86fc;
+            font-size: 0.85rem;
+            margin-top: 3px;
+            min-width: 16px;
+        }
+        .info-item span {
+            font-size: 0.82rem;
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+
+        /* Experience & Education entries */
+        .entry { margin-bottom: 28px; }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+        .entry-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .entry-date {
+            font-size: 0.78rem;
+            color: #bb86fc;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .entry-org {
+            font-size: 0.85rem;
+            color: #a0a0a0;
+            margin-bottom: 10px;
+        }
+        .entry-org i { margin-right: 5px; color: #667eea; }
+        .entry ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+        .entry ul li {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
+
+        /* Projects */
+        .project-entry { margin-bottom: 24px; }
+        .project-entry-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .project-tech-line {
+            font-size: 0.78rem;
+            color: #bb86fc;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .project-entry p {
+            font-size: 0.83rem;
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Certifications */
+        .cert-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .cert-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #fff;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+        .cert-info .cert-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+        .cert-info .cert-issuer {
+            font-size: 0.75rem;
+            color: #888;
+        }
+        .cert-info a {
+            font-size: 0.72rem;
+            color: #667eea;
+        }
+        .cert-info a:hover { color: #bb86fc; }
+
+        @media (max-width: 768px) {
+            .resume-header { padding: 40px 24px 32px; }
+            .resume-header h1 { font-size: 1.9rem; }
+            .download-btn { position: static; margin-top: 24px; display: inline-flex; }
+            .resume-body { grid-template-columns: 1fr; }
+            .resume-sidebar { border-right: none; border-bottom: 1px solid rgba(187,134,252,0.1); padding: 30px 24px; }
+            .resume-main { padding: 30px 24px; }
+        }
+    </style>
+</head>
+
+<body class="no-scroll-preload">
+    <!-- Preloader -->
+    <div class="loader-container">
+        <div class="atom">
+            <div class="electron"></div>
+            <div class="electron-alpha"></div>
+            <div class="electron-omega"></div>
+        </div>
+    </div>
+
+    <!-- Dynamic Navbar -->
+
+    <div class="resume-page">
+        <div class="resume-wrapper">
+
+            <!-- Header -->
+            <div class="resume-header">
+                <h1>Ezera Hailu</h1>
+                <p class="role">Full Stack Web Developer</p>
+                <div class="contact-grid">
+                    <a href="mailto:Ezerahailu5@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> Ezerahailu5@gmail.com
+                    </a>
+                    <a href="tel:+251941960863" class="contact-item">
+                        <i class="fas fa-phone"></i> +251 941 960 863
+                    </a>
+                    <span class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia
+                    </span>
+                    <a href="https://www.linkedin.com/in/ezera-hailu-baa00a206" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i> linkedin.com/in/ezera-hailu
+                    </a>
+                    <a href="https://github.com/ezerahailu4-boop" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i> github.com/ezerahailu4-boop
+                    </a>
+                </div>
+                <a href="assets/docs/ezera hailu.pdf" download class="download-btn">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+
+            <!-- Body -->
+            <div class="resume-body">
+
+                <!-- Sidebar -->
+                <div class="resume-sidebar">
+
+                    <!-- Personal Info -->
+                    <div class="resume-section">
+                        <p class="section-title">Personal Info</p>
+                        <div class="info-item">
+                            <i class="fas fa-venus-mars"></i>
+                            <span>Male</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>Addis Ababa, Ethiopia</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-home"></i>
+                            <span>Kirkos, Addis Ababa<br>1000, Ethiopia</span>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="resume-section">
+                        <p class="section-title">Skills</p>
+
+                        <div class="skill-group">
+                            <p class="skill-group-title">Frontend</p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Bootstrap</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <p class="skill-group-title">Backend</p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">NestJS</span>
+                                <span class="skill-tag">Express.js</span>
+                                <span class="skill-tag">PHP</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <p class="skill-group-title">Databases</p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <p class="skill-group-title">Other</p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">ERP Support</span>
+                                <span class="skill-tag">IT Support</span>
+                                <span class="skill-tag">Design Patterns</span>
+                                <span class="skill-tag">Debugging</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="resume-section">
+                        <p class="section-title">Languages</p>
+                        <div class="lang-item">
+                            <span class="lang-name">Amharic</span>
+                            <span class="lang-level">Mother tongue</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">English</span>
+                            <span class="lang-level">Professional</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Main Content -->
+                <div class="resume-main">
+
+                    <!-- Experience -->
+                    <div class="resume-section">
+                        <p class="section-title">Work Experience</p>
+
+                        <div class="entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Web Developer</span>
+                                <span class="entry-date">Dec 2025 — Present</span>
+                            </div>
+                            <p class="entry-org"><i class="fas fa-building"></i>TAF Energies PLC &nbsp;·&nbsp; Addis Ababa, Ethiopia</p>
+                            <ul>
+                                <li>Developing and maintaining company websites and internal web applications</li>
+                                <li>Providing ERP system support and troubleshooting for staff</li>
+                                <li>Delivering IT support across departments to ensure smooth operations</li>
+                            </ul>
+                        </div>
+
+                        <div class="entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Junior Front-End Developer</span>
+                                <span class="entry-date">Jul 2024 — Jun 2025</span>
+                            </div>
+                            <p class="entry-org"><i class="fas fa-building"></i>Cnect &nbsp;·&nbsp; Addis Ababa, Ethiopia</p>
+                            <ul>
+                                <li>Built and maintained responsive UI components using React and modern CSS</li>
+                                <li>Collaborated with design and backend teams to deliver production-ready features</li>
+                                <li>Improved page performance through code splitting and lazy loading techniques</li>
+                            </ul>
+                        </div>
+
+                        <div class="entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Freelance Web Developer</span>
+                                <span class="entry-date">Apr 2023 — Jul 2024</span>
+                            </div>
+                            <p class="entry-org"><i class="fas fa-laptop-code"></i>Self-Employed &nbsp;·&nbsp; Remote</p>
+                            <ul>
+                                <li>Designed and built custom websites for clients in Ethiopia and the US</li>
+                                <li>Managed full project lifecycle from requirements to deployment</li>
+                                <li>Delivered e-commerce, event management, and business showcase platforms</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="resume-section">
+                        <p class="section-title">Education</p>
+
+                        <div class="entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Bachelor of Science — Computer Science</span>
+                                <span class="entry-date">Sep 2019 — Mar 2024</span>
+                            </div>
+                            <p class="entry-org"><i class="fas fa-university"></i>Unity University &nbsp;·&nbsp; Addis Ababa, Ethiopia</p>
+                            <ul>
+                                <li>Focused on software engineering, web development, and database systems</li>
+                                <li>Completed capstone project in full-stack web application development</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="resume-section">
+                        <p class="section-title">Projects</p>
+
+                        <div class="project-entry">
+                            <p class="project-entry-title">Event Booking Platform</p>
+                            <p class="project-tech-line"><i class="fas fa-code"></i> HTML · CSS · JavaScript · Node.js · MongoDB</p>
+                            <p>Full-stack event booking system with package selection, cart, payment receipt upload, and admin dashboard.</p>
+                        </div>
+
+                        <div class="project-entry">
+                            <p class="project-entry-title">E-Commerce Web App</p>
+                            <p class="project-tech-line"><i class="fas fa-code"></i> JavaScript · Express.js · MongoDB</p>
+                            <p>Online store with user authentication, product management, cart system, and order processing.</p>
+                        </div>
+
+                        <div class="project-entry">
+                            <p class="project-entry-title">Employee Satisfaction Survey System</p>
+                            <p class="project-tech-line"><i class="fas fa-code"></i> HTML · CSS · JavaScript · Node.js · MongoDB</p>
+                            <p>Survey platform for Taf Energies PLC with dynamic forms, rating system, data storage, and admin analytics dashboard.</p>
+                        </div>
+
+                        <div class="project-entry">
+                            <p class="project-entry-title">Portfolio Website</p>
+                            <p class="project-tech-line"><i class="fas fa-code"></i> HTML · CSS · JavaScript</p>
+                            <p>Responsive personal portfolio to showcase projects, skills, experience, and certifications.</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="resume-section">
+                        <p class="section-title">Certifications</p>
+
+                        <div class="cert-entry">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/2560px-Accenture.svg.png" alt="Accenture" class="cert-icon">
+                            <div class="cert-info">
+                                <p class="cert-name">Developer & Technology Virtual Experience</p>
+                                <p class="cert-issuer">Accenture North America · May 2025</p>
+                                <a href="https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/xv8eSGu7nksKNiCQj_2sNmYuurxgpFYawco_69a6ba20c8f9da5081342c40_1772541204285_completion_certificate.pdf" target="_blank">View Certificate ↗</a>
+                            </div>
+                        </div>
+
+                        <div class="cert-entry">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/2560px-Accenture.svg.png" alt="Accenture" class="cert-icon">
+                            <div class="cert-info">
+                                <p class="cert-name">Developer & Technology Virtual Experience</p>
+                                <p class="cert-issuer">Accenture UK · May 2025</p>
+                                <a href="https://www.theforage.com/completion-certificates/mfxGwGDp6WkQmtmTf/vcKAB5yYAgvemepGQ_mfxGwGDp6WkQmtmTf_69a6ba20c8f9da5081342c40_1772537008552_completion_certificate.pdf" target="_blank">View Certificate ↗</a>
+                            </div>
+                        </div>
+
+                        <div class="cert-entry">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/J_P_Morgan_Logo_2008_1.svg/2560px-J_P_Morgan_Logo_2008_1.svg.png" alt="JPMorgan" class="cert-icon">
+                            <div class="cert-info">
+                                <p class="cert-name">Software Engineering Virtual Experience</p>
+                                <p class="cert-issuer">JPMorgan Chase & Co. · May 2025</p>
+                                <a href="https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/E6McHJDKsQYh79moz_Sj7temL583QAYpHXD_69a6ba20c8f9da5081342c40_1772539516328_completion_certificate.pdf" target="_blank">View Certificate ↗</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor-dot-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/cursor.js" defer></script>
+</body>
+
+</html>
