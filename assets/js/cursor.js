@@ -55,13 +55,11 @@ var cursor = {
   
   
         document.addEventListener('mousemove', function(e) {
-            // Show the cursor
             self.cursorVisible = true;
             self.toggleCursorVisibility();
-
-            // Position the dot
-            self.endX = e.pageX;
-            self.endY = e.pageY;
+            // use clientX/clientY so it works with fixed positioning
+            self.endX = e.clientX;
+            self.endY = e.clientY;
             self.$dot.style.top = self.endY + 'px';
             self.$dot.style.left = self.endX + 'px';
         });

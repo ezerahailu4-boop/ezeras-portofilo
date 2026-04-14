@@ -9,26 +9,34 @@
   .cursor-dot,
   .cursor-dot-outline {
     pointer-events: none;
-    z-index: 2;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
     border-radius: 50%;
     opacity: 0;
     transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out,
+                width 0.2s ease,
+                height 0.2s ease;
+    will-change: transform, top, left;
   }
 
   .cursor-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #b83030f1;
+    width: 8px;
+    height: 8px;
+    background-color: #bb86fc;
   }
 
   .cursor-dot-outline {
-    width: 20px;
-    height: 20px;
-    background-color: rgba(211, 115, 115, 0.959);
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 2px solid rgba(187, 134, 252, 0.7);
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out,
+                border-color 0.2s ease;
   }
 }
 

@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/cursor.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/borderglow.css">
+    <link rel="stylesheet" href="assets/css/logoloop.css">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -57,8 +59,15 @@
         /* Modern Projects Section Styles */
         .projects-section {
             padding: 80px 20px;
-            background: var(--section-bg);
+            background: #060010;
             min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        /* push all direct children above the galaxy canvas */
+        .projects-section > *:not(canvas) {
+            position: relative;
+            z-index: 1;
         }
         
         .section-header {
@@ -96,19 +105,35 @@
             padding: 0 15px;
         }
         
+        /* project-card base — visual overrides handled by borderglow.css */
         .project-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
+            --card-bg: #0a0015;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
         
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-            border-color: rgba(102, 126, 234, 0.5);
+        .border-glow-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, #0a0015);
         }
         
         .project-image {
@@ -340,19 +365,49 @@
             <img src="assets/images/dfg_copy-removebg-preview.png" alt="Ezera Hailu" class="hero-avatar" loading="lazy">
         </div>
         <p class="hero-role">I am into <span class="animated-text" data-words=" Web Development , Full Stack Developer , Open Source , Web Designer "></span></p>
-        <div class="social-icons">
-            <a class="socialicon twitter" href="https://twitter.com/Ezera" target="_blank" rel="author" aria-label="Twitter">
-                <svg class="twitter-icon" viewBox="0 0 24 24" fill="#5DA8DC"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a class="socialicon instagram" href="https://www.instagram.com/_ezrsh_/" target="_blank" rel="author" aria-label="Instagram">
-                <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a class="socialicon github" href="https://github.com/ezerahailu4-boop" target="_blank" rel="author" aria-label="GitHub">
-                <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            </a>
-            <a class="socialicon linkedin" href="https://www.linkedin.com/in/ezera-hailu" target="_blank" rel="author" aria-label="LinkedIn">
-                <svg class="linkedin-icon" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
+    </div>
+
+    <!-- Social LogoLoop marquee -->
+    <div class="logoloop" data-speed="55" role="region" aria-label="Social media links" style="padding: 20px 0;">
+        <div class="logoloop__track">
+            <ul class="logoloop__list">
+                <li class="logoloop__item">
+                    <a class="logoloop__link" href="https://twitter.com/_ezrsh_" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Twitter / X
+                    </a>
+                </li>
+                <li class="logoloop__item">
+                    <a class="logoloop__link" href="https://www.instagram.com/_ezrsh_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        Instagram
+                    </a>
+                </li>
+                <li class="logoloop__item">
+                    <a class="logoloop__link" href="https://github.com/ezerahailu4-boop" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </li>
+                <li class="logoloop__item">
+                    <a class="logoloop__link" href="https://www.linkedin.com/in/ezera-hailu" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                </li>
+                <li class="logoloop__item">
+                    <a class="logoloop__link" href="assets/docs/ezera hailu.pdf" download aria-label="Download Resume">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Resume
+                    </a>
+                </li>
+                <li class="logoloop__item">
+                    <a class="logoloop__link" href="https://taf-survey.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Live Project">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        Live Work
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -411,19 +466,35 @@
     <section id="skills">
       <p class="about-label" style="text-align:center;">What I Work With</p>
       <h2>My <span style="background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Skills</span></h2>
-      <div class="skills-grid">
-        <div class="skill-pill"><i class="fab fa-react"></i> React</div>
-        <div class="skill-pill"><i class="fab fa-node-js"></i> Node.js</div>
-        <div class="skill-pill"><i class="fab fa-js-square"></i> JavaScript</div>
-        <div class="skill-pill"><i class="fab fa-python"></i> Python</div>
-        <div class="skill-pill"><i class="fab fa-html5"></i> HTML5</div>
-        <div class="skill-pill"><i class="fab fa-css3-alt"></i> CSS3</div>
-        <div class="skill-pill"><i class="fab fa-git-alt"></i> Git</div>
-        <div class="skill-pill">&#127811; MongoDB</div>
-        <div class="skill-pill">&#128024; PostgreSQL</div>
-        <div class="skill-pill">&#9889; Next.js</div>
-        <div class="skill-pill">&#127912; Tailwind CSS</div>
-        <div class="skill-pill">&#128311; TypeScript</div>
+
+      <!-- Row 1 — scrolls left -->
+      <div class="logoloop skills-loop" data-speed="45" role="region" aria-label="Skills row 1" style="--logoloop-fadeColor:#0d0d1a; margin-bottom:16px;">
+        <div class="logoloop__track">
+          <ul class="logoloop__list">
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-react" style="color:#61dafb"></i> React</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-node-js" style="color:#68a063"></i> Node.js</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-js-square" style="color:#f7df1e"></i> JavaScript</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-python" style="color:#3572A5"></i> Python</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-html5" style="color:#e34c26"></i> HTML5</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS3</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-git-alt" style="color:#f05032"></i> Git</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Row 2 — scrolls right -->
+      <div class="logoloop skills-loop" data-speed="-40" role="region" aria-label="Skills row 2" style="--logoloop-fadeColor:#0d0d1a;">
+        <div class="logoloop__track">
+          <ul class="logoloop__list">
+            <li class="logoloop__item"><span class="skill-chip">🍃 MongoDB</span></li>
+            <li class="logoloop__item"><span class="skill-chip">🐘 PostgreSQL</span></li>
+            <li class="logoloop__item"><span class="skill-chip">⚡ Next.js</span></li>
+            <li class="logoloop__item"><span class="skill-chip">🎨 Tailwind CSS</span></li>
+            <li class="logoloop__item"><span class="skill-chip">🔷 TypeScript</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-docker" style="color:#2496ed"></i> Docker</span></li>
+            <li class="logoloop__item"><span class="skill-chip"><i class="fab fa-aws" style="color:#ff9900"></i> AWS</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -480,7 +551,7 @@
     </section>
 
     <!-- Modern Projects Section -->
-    <section class="projects-section">
+    <section class="projects-section" id="galaxy-bg" style="position:relative;">
         <div class="section-header">
             <h2>Featured <span>Projects</span></h2>
             <p>Check out some of my latest work and side projects</p>
@@ -488,7 +559,7 @@
         
         <div class="projects-grid">
             <!-- Project 1: E-commerce Website -->
-            <div class="project-card">
+            <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi7yAEY5oZrZsWTd2UMNZCIBv3zussG4jHsg&s" alt="E-commerce Website" class="project-image" loading="lazy">
                 </div>
@@ -513,7 +584,7 @@
             </div>
             
             <!-- Project 2: Survey Satisfaction Form -->
-            <div class="project-card">
+            <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Survey Satisfaction Form" class="project-image" loading="lazy">
                 </div>
@@ -538,7 +609,7 @@
             </div>
             
             <!-- Project 3: Snake Game -->
-            <div class="project-card">
+            <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
                     <img src="https://www.coolmathgames.com/sites/default/files/Snake_OG-logo.jpg" alt="Snake Game" class="project-image" loading="lazy">
                 </div>
@@ -562,7 +633,7 @@
             </div>
             
             <!-- Project 4: Tour Guide Website -->
-            <div class="project-card">
+            <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYQu7pJO3G9N0N_eYQukQJqXvGezSKGm21Q&s" alt="Tour Guide Website" class="project-image" loading="lazy">
                 </div>
@@ -586,7 +657,7 @@
             </div>
             
             <!-- Project 5: Grocery Store Website -->
-            <div class="project-card">
+            <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=400&fit=crop" alt="Grocery Store Website" class="project-image" loading="lazy">
                 </div>
@@ -611,7 +682,7 @@
             </div>
             
             <!-- Project 6: Coffee Export Website -->
-            <div class="project-card">
+            <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&h=400&fit=crop" alt="Coffee Export Website" class="project-image" loading="lazy">
                 </div>
@@ -665,6 +736,9 @@
     <script src="assets/js/app.js" defer></script>
     <script src="assets/js/particle.js" defer></script>
     <script src="assets/js/cursor.js" defer></script>
+    <script src="assets/js/borderglow.js" defer></script>
+    <script src="assets/js/galaxy.js" defer></script>
+    <script src="assets/js/logoloop.js" defer></script>
 
     <!-- Google Analytics - loaded last -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKGW40VJ7D"></script>

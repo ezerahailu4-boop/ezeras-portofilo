@@ -1,0 +1,113 @@
+/* ── LogoLoop ── */
+.logoloop {
+  position: relative;
+  overflow: hidden;
+  --logoloop-gap: 48px;
+  --logoloop-logoHeight: 52px;
+  --logoloop-fadeColor: #060010;
+}
+
+.logoloop__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  user-select: none;
+  align-items: center;
+}
+
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logoloop__item {
+  flex: 0 0 auto;
+  margin-right: var(--logoloop-gap);
+  display: flex;
+  align-items: center;
+}
+
+/* fade edges */
+.logoloop::before,
+.logoloop::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: clamp(40px, 10%, 120px);
+  pointer-events: none;
+  z-index: 10;
+}
+.logoloop::before {
+  left: 0;
+  background: linear-gradient(to right, var(--logoloop-fadeColor) 0%, transparent 100%);
+}
+.logoloop::after {
+  right: 0;
+  background: linear-gradient(to left, var(--logoloop-fadeColor) 0%, transparent 100%);
+}
+
+/* each social link */
+.logoloop__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  transition: color 0.25s ease, border-color 0.25s ease,
+              background 0.25s ease, transform 0.25s ease,
+              box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+.logoloop__link:hover {
+  color: #fff;
+  border-color: rgba(187,134,252,0.6);
+  background: rgba(187,134,252,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(187,134,252,0.25);
+}
+
+.logoloop__link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoloop__track { transform: none !important; }
+}
+
+/* skill chip variant */
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(187,134,252,0.2);
+  background: rgba(187,134,252,0.07);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  cursor: default;
+}
+.skill-chip:hover {
+  border-color: rgba(187,134,252,0.55);
+  background: rgba(187,134,252,0.15);
+  transform: translateY(-2px);
+}
