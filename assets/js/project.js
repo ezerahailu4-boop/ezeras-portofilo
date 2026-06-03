@@ -50,6 +50,7 @@ const projects = [
 const showCards = () => {
   let output = "";
   projects.forEach(({ title, cardImage, description, Previewlink, Githublink }) => {
+    const isDisabled = Previewlink === "#";
     output += `
       <div class="column skill-card card" style="margin:15px" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600">
         <div class="wrapper" style="background:url(${cardImage}) center/cover no-repeat;">
@@ -62,7 +63,7 @@ const showCards = () => {
               <ul class="menu-content"><br>
                 <li>${description}</li>
                 <li>
-                  <a href="${Previewlink}" class="social-icon" aria-label="Live preview of ${title}">
+                  <a href="${isDisabled ? 'javascript:void(0)' : Previewlink}" ${isDisabled ? '' : 'target="_blank"'} class="social-icon ${isDisabled ? 'disabled' : ''}" aria-label="Live preview of ${title}" style="${isDisabled ? 'opacity:0.4;cursor:not-allowed;' : ''}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 28" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                   </a>
                 </li>
