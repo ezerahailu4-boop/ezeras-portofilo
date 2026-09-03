@@ -237,6 +237,73 @@
             background: var(--btn-ghost-hover);
             color: var(--section-text);
         }
+
+        .project-direct-links {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            margin-bottom: 18px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+        }
+
+        .project-direct-link {
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .project-direct-link.live {
+            color: #00f0ff;
+        }
+
+        .project-direct-link.live:hover {
+            color: #70ffff;
+            text-decoration: underline;
+        }
+
+        .project-direct-link.repo {
+            color: #c4b5fd;
+        }
+
+        .project-direct-link.repo:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .live-tag-chip {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(10, 12, 22, 0.85);
+            border: 1px solid rgba(40, 199, 111, 0.5);
+            color: #28c76f;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(8px);
+            z-index: 2;
+        }
+
+        .live-dot-pulse {
+            width: 7px;
+            height: 7px;
+            background-color: #28c76f;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #28c76f;
+        }
         
         .btn-disabled {
             opacity: 0.5;
@@ -558,148 +625,211 @@
         </div>
         
         <div class="projects-grid">
-            <!-- Project 1: E-commerce Website -->
+            <!-- Project 1: Nelliy's Rewards Platform -->
             <div class="project-card border-glow-card">
                 <div class="project-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="E-commerce Website" class="project-image" loading="lazy">
+                    <img src="assets/images/projects/nelliy-rewards.png" alt="Nelliy's Rewards Platform Real Screenshot" class="project-image" loading="lazy">
+                    <div class="live-tag-chip"><span class="live-dot-pulse"></span> Live on Vercel</div>
                 </div>
                 <div class="project-content">
-                    <h3>E-commerce Website</h3>
-                    <p>Full stack e-commerce platform built with React, Redux, Node.js, Express, MongoDB, and Stripe integration.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Stripe</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-btn btn-demo btn-disabled">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="https://github.com/ezerahailu4-boop" target="_blank" class="project-btn btn-github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 2: Survey Satisfaction Form -->
-            <div class="project-card border-glow-card">
-                <div class="project-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Survey Satisfaction Form" class="project-image" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Survey Satisfaction Form</h3>
-                    <p>A professional survey and satisfaction form application for collecting user feedback and analyzing responses in real-time.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Chart.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://taf-survey.vercel.app" target="_blank" class="project-btn btn-demo">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="https://github.com/ezerahailu4-boop" target="_blank" class="project-btn btn-github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 3: Snake Game -->
-            <div class="project-card border-glow-card">
-                <div class="project-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="Snake Game" class="project-image" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Snake Game</h3>
-                    <p>A classic snake game built with HTML, CSS, and JavaScript. Playable directly in the browser.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="./game/index.html" class="project-btn btn-demo">
-                            <i class="fas fa-external-link-alt"></i> Play Now
-                        </a>
-                        <a href="https://github.com/ezerahailu4-boop" target="_blank" class="project-btn btn-github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 4: Tour Guide Website -->
-            <div class="project-card border-glow-card">
-                <div class="project-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop" alt="Tour Guide Website" class="project-image" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Tour Guide Website</h3>
-                    <p>A beautiful tour guide website built with React.js and hosted on Netlify for fast performance.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Netlify</span>
-                        <span class="tech-tag">CSS3</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://timiket-tour-guide.vercel.app" target="_blank" class="project-btn btn-demo">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="https://github.com/ezerahailu4-boop" target="_blank" class="project-btn btn-github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 5: Grocery Store Website -->
-            <div class="project-card border-glow-card">
-                <div class="project-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=400&fit=crop" alt="Grocery Store Website" class="project-image" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Grocery Store Website</h3>
-                    <p>A full-featured online grocery store with product catalog, shopping cart, and checkout functionality.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Stripe</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://tana-grocery-store.vercel.app/" target="_blank" class="project-btn btn-demo">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="https://github.com/ezerahailu4-boop" target="_blank" class="project-btn btn-github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 6: Coffee Export Website -->
-            <div class="project-card border-glow-card">
-                <div class="project-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&h=400&fit=crop" alt="Coffee Export Website" class="project-image" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>Coffee Export Website</h3>
-                    <p>A professional B2B platform for Ethiopian coffee exporters to showcase products and connect with international buyers.</p>
+                    <h3>Nelliy's Rewards Platform</h3>
+                    <p>Ethiopia's premier coffee loyalty rewards platform featuring QR point redemption, Anthropic Claude AI receipt OCR, and interactive store locator.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                        <span class="tech-tag">Sanity CMS</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Claude AI</span>
+                        <span class="tech-tag">Prisma</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <div class="project-direct-links">
+                        <a href="https://nelliys-reward-web.vercel.app" target="_blank" rel="noopener noreferrer" class="project-direct-link live" title="Visit Live Website">
+                            <i class="fas fa-globe"></i> <span>nelliys-reward-web.vercel.app</span>
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/nelliys-reward-web" target="_blank" rel="noopener noreferrer" class="project-direct-link repo" title="View Source Code on GitHub">
+                            <i class="fab fa-github"></i> <span>ezerahailu4-boop/nelliys-reward-web</span>
+                        </a>
                     </div>
                     <div class="project-links">
-                        <a href="https://birhan-coffee-lwgv.vercel.app" target="_blank" class="project-btn btn-demo">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        <a href="https://nelliys-reward-web.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Vercel)
                         </a>
-                        <a href="https://github.com/ezerahailu4-boop" target="_blank" class="project-btn btn-github">
-                            <i class="fab fa-github"></i> GitHub
+                        <a href="https://github.com/ezerahailu4-boop/nelliys-reward-web" target="_blank" rel="noopener noreferrer" class="project-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: ApexBet Sportsbook -->
+            <div class="project-card border-glow-card">
+                <div class="project-image-wrapper">
+                    <img src="assets/images/projects/sportsbook.png" alt="ApexBet Sportsbook Platform Real Screenshot" class="project-image" loading="lazy">
+                    <div class="live-tag-chip"><span class="live-dot-pulse"></span> Live on Vercel</div>
+                </div>
+                <div class="project-content">
+                    <h3>ApexBet Sportsbook Platform</h3>
+                    <p>Production-grade sportsbook web application featuring live match odds feeds, interactive dynamic bet slips, and modular wagering architecture.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Zustand</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <div class="project-direct-links">
+                        <a href="https://sportsbook-swart.vercel.app" target="_blank" rel="noopener noreferrer" class="project-direct-link live" title="Visit Live Website">
+                            <i class="fas fa-globe"></i> <span>sportsbook-swart.vercel.app</span>
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/sportsbook" target="_blank" rel="noopener noreferrer" class="project-direct-link repo" title="View Source Code on GitHub">
+                            <i class="fab fa-github"></i> <span>ezerahailu4-boop/sportsbook</span>
+                        </a>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://sportsbook-swart.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Vercel)
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/sportsbook" target="_blank" rel="noopener noreferrer" class="project-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: SOTEN Industries Corporate Portal -->
+            <div class="project-card border-glow-card">
+                <div class="project-image-wrapper">
+                    <img src="assets/images/projects/soten.png" alt="SOTEN Industries Corporate Portal Real Screenshot" class="project-image" loading="lazy">
+                    <div class="live-tag-chip"><span class="live-dot-pulse"></span> Live on Vercel</div>
+                </div>
+                <div class="project-content">
+                    <h3>SOTEN Industries Corporate Portal</h3>
+                    <p>Official corporate manufacturing portal for SOTEN Industries (YETAF Holdings) showcasing TMT deformed rebars and industrial vessel engineering.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Framer Motion</span>
+                        <span class="tech-tag">Lucide</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <div class="project-direct-links">
+                        <a href="https://soten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-direct-link live" title="Visit Live Website">
+                            <i class="fas fa-globe"></i> <span>soten.vercel.app</span>
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/soten" target="_blank" rel="noopener noreferrer" class="project-direct-link repo" title="View Source Code on GitHub">
+                            <i class="fab fa-github"></i> <span>ezerahailu4-boop/soten</span>
+                        </a>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://soten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Vercel)
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/soten" target="_blank" rel="noopener noreferrer" class="project-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4: ParkAddis Smart Parking -->
+            <div class="project-card border-glow-card">
+                <div class="project-image-wrapper">
+                    <img src="assets/images/projects/parking.png" alt="ParkAddis Smart Parking Real Screenshot" class="project-image" loading="lazy">
+                    <div class="live-tag-chip"><span class="live-dot-pulse"></span> Live on Vercel</div>
+                </div>
+                <div class="project-content">
+                    <h3>ParkAddis Smart Parking</h3>
+                    <p>Intelligent parking management system with real-time slot availability tracking, automated QR ticketing, and occupancy analytics charts.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Prisma</span>
+                        <span class="tech-tag">Recharts</span>
+                        <span class="tech-tag">QR Code</span>
+                    </div>
+                    <div class="project-direct-links">
+                        <a href="https://parking-management-system-five.vercel.app" target="_blank" rel="noopener noreferrer" class="project-direct-link live" title="Visit Live Website">
+                            <i class="fas fa-globe"></i> <span>parking-management-system-five.vercel.app</span>
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/parking-management-system" target="_blank" rel="noopener noreferrer" class="project-direct-link repo" title="View Source Code on GitHub">
+                            <i class="fab fa-github"></i> <span>ezerahailu4-boop/parking-management-system</span>
+                        </a>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://parking-management-system-five.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Vercel)
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/parking-management-system" target="_blank" rel="noopener noreferrer" class="project-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5: WashOS Car Wash ERP -->
+            <div class="project-card border-glow-card">
+                <div class="project-image-wrapper">
+                    <img src="assets/images/projects/carwash.png" alt="WashOS Car Wash ERP Real Screenshot" class="project-image" loading="lazy">
+                    <div class="live-tag-chip"><span class="live-dot-pulse"></span> Live on Vercel</div>
+                </div>
+                <div class="project-content">
+                    <h3>WashOS — Car Wash ERP</h3>
+                    <p>Full-scale ERP and POS system for car wash operations with dynamic service queues, automated inventory deductions, and PDF invoices.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Recharts</span>
+                        <span class="tech-tag">jsPDF</span>
+                    </div>
+                    <div class="project-direct-links">
+                        <a href="https://car-wash-management-system-five.vercel.app" target="_blank" rel="noopener noreferrer" class="project-direct-link live" title="Visit Live Website">
+                            <i class="fas fa-globe"></i> <span>car-wash-management-system-five.vercel.app</span>
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/car-wash-management-system" target="_blank" rel="noopener noreferrer" class="project-direct-link repo" title="View Source Code on GitHub">
+                            <i class="fab fa-github"></i> <span>ezerahailu4-boop/car-wash-management-system</span>
+                        </a>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://car-wash-management-system-five.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Vercel)
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/car-wash-management-system" target="_blank" rel="noopener noreferrer" class="project-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6: TAF Energies DocTrack -->
+            <div class="project-card border-glow-card">
+                <div class="project-image-wrapper">
+                    <img src="assets/images/projects/doctrack.png" alt="TAF Energies DocTrack Real Screenshot" class="project-image" loading="lazy">
+                    <div class="live-tag-chip"><span class="live-dot-pulse"></span> Live on Vercel</div>
+                </div>
+                <div class="project-content">
+                    <h3>TAF Energies DocTrack</h3>
+                    <p>Enterprise document workflow automation replacing paper registries with digital intake workflows, approval tracking, and cloud archive.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js 14</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Prisma</span>
+                        <span class="tech-tag">Radix UI</span>
+                    </div>
+                    <div class="project-direct-links">
+                        <a href="https://taf-document-sender.vercel.app" target="_blank" rel="noopener noreferrer" class="project-direct-link live" title="Visit Live Website">
+                            <i class="fas fa-globe"></i> <span>taf-document-sender.vercel.app</span>
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/document-sender" target="_blank" rel="noopener noreferrer" class="project-direct-link repo" title="View Source Code on GitHub">
+                            <i class="fab fa-github"></i> <span>ezerahailu4-boop/document-sender</span>
+                        </a>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://taf-document-sender.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn btn-demo">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Vercel)
+                        </a>
+                        <a href="https://github.com/ezerahailu4-boop/document-sender" target="_blank" rel="noopener noreferrer" class="project-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub Repo
                         </a>
                     </div>
                 </div>
