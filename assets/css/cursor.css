@@ -1,48 +1,83 @@
-@media (hover: hover) and (pointer: fine) {
-  html,
-  html *,
-  body,
-  body * {
-    cursor: none;
-  }
+/* Only hide standard cursor when custom cursor is confirmed active and running */
+body.custom-cursor-enabled,
+body.custom-cursor-enabled * {
+  cursor: none !important;
+}
 
-  .cursor-dot,
-  .cursor-dot-outline {
-    pointer-events: none;
-    z-index: 99999;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease-in-out,
-                transform 0.3s ease-in-out,
-                width 0.2s ease,
-                height 0.2s ease;
-    will-change: transform, top, left;
-  }
+/* Maintain normal I-beam cursor for typing in text fields */
+body.custom-cursor-enabled input[type="text"],
+body.custom-cursor-enabled input[type="email"],
+body.custom-cursor-enabled input[type="password"],
+body.custom-cursor-enabled input[type="search"],
+body.custom-cursor-enabled input[type="tel"],
+body.custom-cursor-enabled input[type="url"],
+body.custom-cursor-enabled textarea,
+body.custom-cursor-enabled [contenteditable="true"] {
+  cursor: text !important;
+}
 
-  .cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #bb86fc;
-  }
+.cursor-dot,
+.cursor-dot-outline {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  z-index: 9999999;
+  display: none;
+  transition: opacity 0.25s ease,
+              transform 0.18s ease-out,
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+  will-change: transform, top, left, opacity;
+}
 
-  .cursor-dot-outline {
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: 2px solid rgba(187, 134, 252, 0.7);
-    transition: opacity 0.3s ease-in-out,
-                transform 0.3s ease-in-out,
-                border-color 0.2s ease;
-  }
+body.custom-cursor-enabled .cursor-dot,
+body.custom-cursor-enabled .cursor-dot-outline {
+  display: block;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #bb86fc;
+}
+
+.cursor-dot-outline {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 2px solid rgba(187, 134, 252, 0.7);
+}
+
+/* Hovering over clickable elements */
+.cursor-dot.cursor-hover {
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: #03dac6;
+}
+
+.cursor-dot-outline.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  border-color: #03dac6;
+  background: rgba(3, 218, 198, 0.1);
+}
+
+/* Clicking / Active state */
+.cursor-dot.cursor-active {
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+.cursor-dot-outline.cursor-active {
+  transform: translate(-50%, -50%) scale(0.85);
+  border-color: #bb86fc;
 }
 
 @media (hover: none) {
   .cursor-dot,
   .cursor-dot-outline {
-    display: none;
+    display: none !important;
   }
 }
+
